@@ -14,6 +14,7 @@ module.exports = {
         btn: "#130160",
         signin: "#0d0140",
         google: "#d6cdfe",
+        oranje: "#FF9228",
       },
     },
   },

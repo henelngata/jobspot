@@ -1,7 +1,7 @@
 import { Tabs } from "expo-router";
 import { View } from "react-native";
 import { icons } from "@/constants";
-
+import  {Svg}  from "react-native-svg";
 
 // Custom Tab Icon Component for SVG Icons
 const TabIcon = ({
@@ -18,10 +18,14 @@ const TabIcon = ({
   >
     <View
       className={`rounded-full w-12 h-12 items-center justify-center ${
-        focused ? "bg-general-400" : ""
+        focused ? "bg-general-400" : "red"
       }`}
     >
-      <IconComponent width={28} height={28} fill={focused ? "blue" : "gray"} />
+      <IconComponent
+        width={28}
+        height={28}
+        stroke={focused ? "#0D0140" : "gray"}
+      />
     </View>
   </View>
 );
@@ -30,25 +34,11 @@ const TabIcon = ({
 const Layout = () => {
   return (
     <Tabs
-      screenOptions={{
-        tabBarActiveTintColor: "blue",
-        tabBarStyle: {
-          backgroundColor: "#ffffff",
-          paddingBottom: 0,
-          overflow: "hidden",
-          height: 78,
-          display: "flex",
-          justifyContent: "space-between",
-          alignItems: "center",
-          flexDirection: "row",
-          position: "absolute",
-        },
-      }}
+
     >
       <Tabs.Screen
         name="home"
         options={{
-          title: "Home",
           headerShown: false,
           tabBarIcon: ({ focused }) => (
             <TabIcon IconComponent={icons.HomeIcon} focused={focused} />
@@ -58,7 +48,7 @@ const Layout = () => {
       <Tabs.Screen
         name="connection"
         options={{
-         
+
           headerShown: false,
           tabBarIcon: ({ focused }) => (
             <TabIcon IconComponent={icons.ConnectionIcon} focused={focused} />
